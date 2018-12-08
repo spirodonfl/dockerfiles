@@ -18,6 +18,7 @@ services:
     volumes:
       - ./db:/data/db
       - ./mongod.conf:/etc/mongod.conf
+      - ./entrypoint:/docker-entrypoint-initdb.d
     command:
       - '-f'
       - '/etc/mongod.conf'
