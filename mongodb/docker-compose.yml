@@ -1,0 +1,25 @@
+# Notes:
+# docker exec -it some-mongo bash
+# docker log some-mongo
+# docker run --rm --link mongodb:mongo -v /root:/backup mongo bash -c 'mongodump --out /backup --host mongo:27017'
+# docker run --rm --link mongodb:mongo -v /root:/backup mongo bash -c 'mongorestore /backup --host mongo:27017'
+
+version: '3.1'
+
+services:
+
+  {{custom_service_name_here}}:
+    image: mongo
+    restart: always
+    container_name: {{custom_container_name_here}}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: {{example}} # This should get update per deploy
+    volumes:
+      - ./db:/data/db
+      - ./mongod.conf:/etc/mongod.conf
+    command:
+      - '-f'
+      - '/etc/mongod.conf'
+    ports:
+      - 9000:27017 # Ports should be modified per deploy
