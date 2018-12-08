@@ -14,7 +14,7 @@ services:
     container_name: {{custom_container_name_here}}
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: {{example}} # This should get update per deploy
+      MONGO_INITDB_ROOT_PASSWORD: {{example}} # This should get updated per deploy
     volumes:
       - ./db:/data/db
       - ./mongod.conf:/etc/mongod.conf
@@ -22,4 +22,4 @@ services:
       - '-f'
       - '/etc/mongod.conf'
     ports:
-      - 9000:27017 # Ports should be modified per deploy
+      - 9000:27017 # This should be updated per deploy
