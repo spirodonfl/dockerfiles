@@ -1,7 +1,8 @@
 FROM node:latest
-RUN mkdir -p /usr/src/app
+#RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 #COPY package.json /usr/src/app/
-RUN yarn install
+#RUN yarn install
 #COPY . /usr/src/app
-CMD [ 'yarn', 'start' ]
+#CMD [ "yarn", "start" ]
+CMD [ "/bin/bash" ]

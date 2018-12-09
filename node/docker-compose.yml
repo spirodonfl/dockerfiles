@@ -1,9 +1,15 @@
+# docker-compose run --rm node yarn install
+# docker-compose run node index.js
+# docker-compose run node yarn run some-command
+
 version: '3.1'
 
 services:
   node:
     container_name: ${CONTAINER_NAME}
-    build: .
+    build:
+      context: .
+      dockerfile: node.Dockerfile
     ports:
       - ${HTTP_PORT}:80
       - ${HTTPS_PORT}:443
