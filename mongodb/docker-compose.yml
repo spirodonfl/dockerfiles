@@ -8,19 +8,19 @@ version: '3.1'
 
 services:
 
-  {{custom_service_name_here}}:
-    image: mongo
-    restart: always
-    container_name: {{custom_container_name_here}}
+  mongodb:
+    image: 'mongo'
+    restart: 'always'
+    container_name: ${CONTAINER_NAME}
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: {{example}} # This should get updated per deploy
+      MONGO_INITDB_ROOT_USERNAME: ${ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${ROOT_PASSWORD}
     volumes:
-      - ./db:/data/db
-      - ./mongod.conf:/etc/mongod.conf
-      - ./entrypoint:/docker-entrypoint-initdb.d
+      - './db:/data/db'
+      - './mongod.conf:/etc/mongod.conf'
+      - './entrypoint:/docker-entrypoint-initdb.d'
     command:
       - '-f'
       - '/etc/mongod.conf'
     ports:
-      - 9000:27017 # This should be updated per deploy
+      - '${EXTERNAL_PORT}:27017' # This should be updated per deploy

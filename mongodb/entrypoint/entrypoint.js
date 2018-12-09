@@ -1,17 +1,16 @@
-var db = connect("mongodb://localhost/admin");
+/**
+ * Sets up stuff!
+ */
 
-// db.createUser(
-//     {
-//         user: "yourAdminUserName",
-//         pwd: "yourAdminPassword",
-//         roles: [ { role: "userAdminAnyDatabase", db: "admin" } ]
-//     }
-// );
-
-// db.createUser(
-//     {
-//         user: "yourAdminUserName",
-//         pwd: "yourAdminPassword",
-//         roles: [ { role: "readAnyDatabase", db: "admin" } ]
-//     }
-// );
+/*
+db = db.getSiblingDB('admin');
+db.createUser(
+    {
+        user: '{user}',
+        pwd: '{password}',
+        roles: [
+        	{role: 'readAnyDatabase', db: 'admin'}
+        ]
+    }
+);
+*/
