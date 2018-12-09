@@ -24,3 +24,5 @@ services:
       - '/etc/mongod.conf'
     ports:
       - '${EXTERNAL_PORT}:27017' # This should be updated per deploy
+    env_file:
+      - './.env'
