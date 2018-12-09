@@ -14,5 +14,5 @@ services:
       # this takes advantage of the feature in Docker that a new anonymous
       # volume (which is what we're creating here) will be initialized with the
       # existing content of the image at the same location
-      - ./app:/var/www/html/sites
+      - ./app:/usr/src/app
     restart: always
