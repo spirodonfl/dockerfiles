@@ -22,3 +22,4 @@ services:
       # existing content of the image at the same location
       - ./app:/usr/src/app
     restart: always
+    working_dir: /usr/src/app
