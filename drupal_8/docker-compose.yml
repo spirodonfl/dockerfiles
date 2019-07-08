@@ -18,4 +18,3 @@ services:
       #- /var/www/html/sites/default/files/css
       #- /var/www/html/sites/default/files/js
       #- /var/www/html/sites/default/files/php
-    restart: always
