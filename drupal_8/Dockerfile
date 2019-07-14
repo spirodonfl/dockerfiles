@@ -54,6 +54,14 @@ RUN mkdir /var/private_files && \
 
 #COPY environment.env /var/environment.env
 
+# Setup exim4 for transactional emails. Simple setup
+RUN apt-get update && \
+  apt-get install -y exim4 &&\
+  echo 'sendmail_path = "/usr/sbin/exim4 -t"' >> /usr/local/etc/php/conf.d/mail.ini && \
+  echo 'SMTP = localhost' >> /usr/local/etc/php/conf.d/mail.ini && \
+  echo 'smtp_port = 25' >> /usr/local/etc/php/conf.d/mail.ini
+COPY ./exim4.conf /etc/exim4/exim4.conf
+RUN chmod 644 /etc/exim4/exim4.conf
 
 # composer global config minimum-stability dev && \
 # composer global config prefer-stable true && \
